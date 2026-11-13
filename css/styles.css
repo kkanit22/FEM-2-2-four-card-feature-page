@@ -30,11 +30,12 @@ main {
 	justify-content: center;
 	align-items: center;
 	min-height: calc(100vh - 1rem);
-	padding: clamp(2rem, 8vw, 6rem) clamp(0rem, 4vw, 2rem);
+	padding: clamp(2rem, 8vh, 5rem) clamp(2rem, 8vw, 6rem) ;
 }
 
 .title {
 	color: var(--grey-500);
+	margin-bottom: clamp(3rem, 4vw, 6rem);
 	text-align: center;
 	width: clamp(3rem, 84.2vw, 33.75rem);
 }
@@ -59,16 +60,26 @@ h2 {
 	margin: clamp(0.5rem, 1vw, 1rem) 0;
 }
 
+.cards {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(4, 15.625rem);
+	margin: auto;
+	max-width: 100%;
+}
+
 .card {
 	background-color: var(--white);
 	border-radius: 0.5rem;
 	box-shadow: 0 0.9375rem 1.875rem -0.6875rem rgba(131, 166, 210, 0.5);
 	color: var(--grey-500);
 	height: 15.625rem;
-	margin-bottom: 2rem;
+	/* margin-bottom: 2rem; */
 	padding: 2rem;
 	position: relative;
-	width: clamp(0rem, 83.7vw, 21.875rem);
+	width: 100%;
+	/* width: clamp(0rem, 83.7vw, 21.875rem); */
 }
 
 .card > p {
@@ -98,8 +109,6 @@ h3 {
 	border-top: 0.25rem solid var(--blue);
 }
 
-
-
 .card > img {
 	height: 4rem;
 	width: 4rem;
@@ -114,4 +123,67 @@ h3 {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 600px) {
+	.cards {
+		grid-template-columns: repeat(4, clamp(0rem, 18vw, 8.8125rem));
+		grid-template-rows: repeat(3, 15.625rem);
+	}
+
+	.card {
+		width: calc(2 * clamp(0rem, 18vw, 8.8125rem) + 2rem);
+	}
+
+	.builder {
+		grid-column: 2 / 3;
+		grid-row: 1;
+	}
+
+	.supervisor {
+		grid-column: 1 / 2;
+		grid-row: 2;
+	}
+
+	.karma {
+		grid-column: 3 / 4;
+		grid-row: 2;
+	}
+
+	.calculator {
+		grid-column: 2 / 3;
+		grid-row: 3;
+	}
+}
+
+@media screen and (min-width: 1100px) {
+	.cards {
+		grid-template-columns: repeat(3, clamp(0rem, 26.7vw, 21.875rem));
+		grid-template-rows: repeat(4, 6.8125rem);
+	}
+
+	.card {
+		width: clamp(0rem, 26.7vw, 21.875rem);
+	}
+
+	.builder {
+		grid-column: 2;
+		grid-row: 1 / 2;
+	}
+
+	.supervisor {
+		grid-column: 1;
+		grid-row: 2 / 3;
+	}
+
+	.karma {
+		grid-column: 2;
+		grid-row: 3 / 4;
+	}
+
+	.calculator {
+		grid-column: 3;
+		grid-row: 2 / 3;
+	}
+	
 }
